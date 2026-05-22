@@ -163,7 +163,7 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
           <button
             id="create-folder-btn"
             onClick={() => setIsCreateOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 bg-white/5 hover:bg-white/10 hover:text-white transition-all cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-500 transition-all cursor-pointer shadow-md shadow-indigo-500/20"
             title="New folder or file"
           >
             <FolderPlusIcon size={14} />
