@@ -312,7 +312,7 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
         isOpen={isCreateOpen}
         onClose={() => setIsCreateOpen(false)}
         onSubmit={handleCreate}
-        parentName={selectedFolder?.name || "Root"}
+        parentName={selectedFolder?.name || "Home"}
       />
 
       <RenameModal

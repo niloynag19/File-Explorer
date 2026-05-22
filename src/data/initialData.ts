@@ -2,7 +2,7 @@ import { FileNode } from "@/types";
 
 export const initialFileSystem: FileNode = {
   id: "root",
-  name: "Root",
+  name: "Home",
   type: "folder",
   children: [
     {
