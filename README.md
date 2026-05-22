@@ -1,5 +1,7 @@
 # Mini File Explorer
 
+🌍 **Live Demo:** [https://file-explorer-amber.vercel.app](https://file-explorer-amber.vercel.app)
+
 A web-based Mini File Explorer application built for Webbly Media. This application allows users to manage folders and text files in a simple, hierarchical structure, similar to a basic desktop file manager.
 
 ## 🚀 Features
