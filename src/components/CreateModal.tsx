@@ -39,18 +39,15 @@ export default function CreateModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={handleClose}
       />
 
-      {/* Modal */}
       <div
         id="create-modal"
         className="relative w-full max-w-md bg-slate-800 border border-white/10 rounded-2xl shadow-2xl shadow-black/50 overflow-hidden animate-in"
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-white/5">
           <div>
             <h2 className="text-lg font-semibold text-white">Create New</h2>
@@ -67,9 +64,7 @@ export default function CreateModal({
           </button>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="p-5 space-y-4">
-          {/* Type selector */}
           <div className="space-y-2">
             <label className="text-xs font-medium text-slate-400 uppercase tracking-wider">
               Type
@@ -106,7 +101,6 @@ export default function CreateModal({
             </div>
           </div>
 
-          {/* Name input */}
           <div className="space-y-2">
             <label
               htmlFor="create-name-input"
@@ -127,7 +121,6 @@ export default function CreateModal({
             />
           </div>
 
-          {/* Actions */}
           <div className="flex gap-2 pt-2">
             <button
               type="button"

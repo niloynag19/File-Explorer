@@ -20,7 +20,6 @@ export default function FileEditor({ file }: FileEditorProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  // Re-sync when a different file is opened
   useEffect(() => {
     setContent(file.content || "");
     setIsEditing(false);
@@ -35,7 +34,6 @@ export default function FileEditor({ file }: FileEditorProps) {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    // Ctrl+S / Cmd+S to save
     if ((e.ctrlKey || e.metaKey) && e.key === "s") {
       e.preventDefault();
       handleSave();
@@ -49,7 +47,6 @@ export default function FileEditor({ file }: FileEditorProps) {
       id="file-editor"
       className="flex flex-col h-full bg-slate-900/30 rounded-2xl border border-white/5 overflow-hidden"
     >
-      {/* Editor header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-slate-800/30">
         <div className="flex items-center gap-3">
           <button
@@ -66,7 +63,6 @@ export default function FileEditor({ file }: FileEditorProps) {
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Save indicator */}
           {saved && (
             <span className="text-xs text-emerald-400 font-medium animate-pulse">
               ✓ Saved
@@ -93,11 +89,9 @@ export default function FileEditor({ file }: FileEditorProps) {
         </div>
       </div>
 
-      {/* Editor body */}
       <div className="flex-1 overflow-auto">
         {isEditing ? (
           <div className="flex h-full">
-            {/* Line numbers */}
             <div className="flex-shrink-0 py-4 px-3 text-right border-r border-white/5 select-none bg-slate-900/50">
               {Array.from({ length: lineCount }, (_, i) => (
                 <div
@@ -109,7 +103,6 @@ export default function FileEditor({ file }: FileEditorProps) {
               ))}
             </div>
 
-            {/* Text area */}
             <textarea
               id="file-content-editor"
               value={content}
@@ -122,7 +115,6 @@ export default function FileEditor({ file }: FileEditorProps) {
           </div>
         ) : (
           <div className="flex h-full">
-            {/* Line numbers */}
             <div className="flex-shrink-0 py-4 px-3 text-right border-r border-white/5 select-none bg-slate-900/50">
               {Array.from({ length: lineCount }, (_, i) => (
                 <div
@@ -134,7 +126,6 @@ export default function FileEditor({ file }: FileEditorProps) {
               ))}
             </div>
 
-            {/* Content view */}
             <pre className="flex-1 p-4 text-sm text-slate-300 font-mono leading-6 whitespace-pre-wrap overflow-auto">
               {content || (
                 <span className="text-slate-600 italic">Empty file</span>
@@ -144,7 +135,6 @@ export default function FileEditor({ file }: FileEditorProps) {
         )}
       </div>
 
-      {/* Status bar */}
       <div className="flex items-center justify-between px-4 py-1.5 border-t border-white/5 bg-slate-800/30 text-[10px] text-slate-500">
         <span>
           {isEditing ? "EDITING" : "READ-ONLY"} • {lineCount} lines

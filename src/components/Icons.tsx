@@ -2,9 +2,6 @@
 
 import React from "react";
 
-// Reusable icon components using inline SVGs for zero dependencies
-// All icons follow a consistent 18x18 size with currentColor for theming
-
 interface IconProps {
   className?: string;
   size?: number;

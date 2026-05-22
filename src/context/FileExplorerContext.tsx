@@ -48,7 +48,6 @@ export function FileExplorerProvider({
         try {
           return JSON.parse(saved);
         } catch {
-          // If corrupted, fall back to initial data
         }
       }
     }
@@ -61,15 +60,13 @@ export function FileExplorerProvider({
     () => new Set(["root"])
   );
 
-  // Persist to localStorage on change
-  useEffect(() => {
+    useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(fileSystem));
   }, [fileSystem]);
 
   const createItem = useCallback(
     (parentId: string, name: string, type: FileType) => {
       setFileSystem((prev) => addNode(prev, parentId, name, type));
-      // Auto-expand parent
       setExpandedFolders((prev) => new Set(prev).add(parentId));
     },
     []
@@ -81,11 +78,9 @@ export function FileExplorerProvider({
 
   const deleteItem = useCallback(
     (nodeId: string) => {
-      // If the deleted node is the currently selected folder, go to root
       if (nodeId === selectedFolderId) {
         setSelectedFolderId("root");
       }
-      // If the deleted node is the open file, close it
       if (nodeId === openFileId) {
         setOpenFileId(null);
       }

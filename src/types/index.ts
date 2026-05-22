@@ -5,5 +5,5 @@ export interface FileNode {
   name: string;
   type: FileType;
   children?: FileNode[];
-  content?: string; // Only for text files
+  content?: string;
 }

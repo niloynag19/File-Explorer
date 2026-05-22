@@ -2,23 +2,14 @@ import { FileNode, FileType } from "@/types";
 
 let counter = Date.now();
 
-/**
- * Generate a unique identifier for new nodes
- */
 export function generateId(): string {
   return `node-${counter++}-${Math.random().toString(36).substring(2, 8)}`;
 }
 
-/**
- * Deep clone a file node tree
- */
 export function cloneTree(node: FileNode): FileNode {
   return JSON.parse(JSON.stringify(node));
 }
 
-/**
- * Find a node by its ID in the tree
- */
 export function findNodeById(
   root: FileNode,
   id: string
@@ -33,9 +24,6 @@ export function findNodeById(
   return undefined;
 }
 
-/**
- * Find parent node of a given node ID
- */
 export function findParentNode(
   root: FileNode,
   targetId: string
@@ -50,9 +38,6 @@ export function findParentNode(
   return undefined;
 }
 
-/**
- * Add a new child node to a parent folder (returns new tree)
- */
 export function addNode(
   root: FileNode,
   parentId: string,
@@ -75,9 +60,6 @@ export function addNode(
   return newTree;
 }
 
-/**
- * Rename a node (returns new tree)
- */
 export function renameNode(
   root: FileNode,
   nodeId: string,
@@ -89,9 +71,6 @@ export function renameNode(
   return newTree;
 }
 
-/**
- * Delete a node by ID (returns new tree)
- */
 export function deleteNode(root: FileNode, nodeId: string): FileNode {
   const newTree = cloneTree(root);
   const parent = findParentNode(newTree, nodeId);
@@ -101,9 +80,6 @@ export function deleteNode(root: FileNode, nodeId: string): FileNode {
   return newTree;
 }
 
-/**
- * Update text content of a file node (returns new tree)
- */
 export function updateFileContent(
   root: FileNode,
   nodeId: string,
@@ -117,9 +93,6 @@ export function updateFileContent(
   return newTree;
 }
 
-/**
- * Get the breadcrumb path for a node
- */
 export function getBreadcrumbPath(
   root: FileNode,
   targetId: string

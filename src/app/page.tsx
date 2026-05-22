@@ -11,13 +11,11 @@ export default function Home() {
   return (
     <FileExplorerProvider>
       <div id="app-container" className="flex h-full bg-background">
-        {/* Sidebar tree view */}
         <Sidebar
           isOpen={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
         />
 
-        {/* Main content panel */}
         <MainPanel
           onToggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
         />

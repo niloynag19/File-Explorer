@@ -27,18 +27,15 @@ export default function DeleteModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* Modal */}
       <div
         id="delete-modal"
         className="relative w-full max-w-sm bg-slate-800 border border-white/10 rounded-2xl shadow-2xl shadow-black/50 overflow-hidden animate-in"
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-white/5">
           <h2 className="text-lg font-semibold text-white">Confirm Delete</h2>
           <button
@@ -49,7 +46,6 @@ export default function DeleteModal({
           </button>
         </div>
 
-        {/* Content */}
         <div className="p-5">
           <div className="flex items-start gap-3 mb-5">
             <div className="w-10 h-10 rounded-xl bg-red-500/15 flex items-center justify-center flex-shrink-0">

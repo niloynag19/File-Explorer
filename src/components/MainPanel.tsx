@@ -82,11 +82,9 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
     }
   };
 
-  // If a file is open, show the editor
   if (openedFile && openedFile.type === "text") {
     return (
       <main className="flex-1 flex flex-col min-w-0 h-full">
-        {/* Top bar */}
         <div className="flex items-center gap-3 px-4 py-3 lg:px-6 border-b border-white/5 bg-slate-900/30">
           <button
             onClick={onToggleSidebar}
@@ -113,10 +111,8 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
 
   return (
     <main id="main-panel" className="flex-1 flex flex-col min-w-0 h-full">
-      {/* Top bar */}
       <div className="flex items-center justify-between px-4 py-3 lg:px-6 border-b border-white/5 bg-slate-900/30">
         <div className="flex items-center gap-3 min-w-0">
-          {/* Mobile menu button */}
           <button
             onClick={onToggleSidebar}
             className="lg:hidden p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
@@ -124,7 +120,6 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
             <MenuIcon size={20} />
           </button>
 
-          {/* Breadcrumbs */}
           <nav
             id="breadcrumbs"
             className="flex items-center gap-1 text-sm min-w-0 overflow-x-auto"
@@ -158,7 +153,6 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
           </nav>
         </div>
 
-        {/* Action buttons */}
         <div className="flex items-center gap-1.5 flex-shrink-0">
           <button
             id="create-folder-btn"
@@ -172,10 +166,8 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
         </div>
       </div>
 
-      {/* Content area */}
       <div className="flex-1 overflow-y-auto p-4 lg:p-6">
         {children.length === 0 ? (
-          /* Empty state */
           <div className="flex flex-col items-center justify-center h-full text-center py-20">
             <div className="w-20 h-20 rounded-2xl bg-slate-800/50 flex items-center justify-center mb-4">
               <FolderIcon size={36} className="text-slate-600" />
@@ -196,7 +188,6 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
           </div>
         ) : (
           <div className="space-y-6">
-            {/* Folders section */}
             {folders.length > 0 && (
               <section>
                 <h2 className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-3 px-1">
@@ -222,7 +213,6 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
                         </p>
                       </div>
 
-                      {/* Action buttons on hover */}
                       <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button
                           onClick={(e) => {
@@ -251,7 +241,6 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
               </section>
             )}
 
-            {/* Files section */}
             {files.length > 0 && (
               <section>
                 <h2 className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-3 px-1">
@@ -275,7 +264,6 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
                         <p className="text-[10px] text-slate-500">Text File</p>
                       </div>
 
-                      {/* Action buttons on hover */}
                       <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button
                           onClick={(e) => {
@@ -307,7 +295,6 @@ export default function MainPanel({ onToggleSidebar }: MainPanelProps) {
         )}
       </div>
 
-      {/* Modals */}
       <CreateModal
         isOpen={isCreateOpen}
         onClose={() => setIsCreateOpen(false)}

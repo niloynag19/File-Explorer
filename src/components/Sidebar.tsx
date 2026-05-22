@@ -59,7 +59,6 @@ function TreeNode({ node, depth }: TreeNodeProps) {
         style={{ paddingLeft: `${depth * 16 + 8}px` }}
         title={node.name}
       >
-        {/* Expand/collapse chevron for folders */}
         {isFolder ? (
           <span
             onClick={handleToggle}
@@ -76,7 +75,6 @@ function TreeNode({ node, depth }: TreeNodeProps) {
           <span className="w-5" />
         )}
 
-        {/* Icon */}
         <span className="flex-shrink-0">
           {isFolder ? (
             isExpanded ? (
@@ -89,11 +87,9 @@ function TreeNode({ node, depth }: TreeNodeProps) {
           )}
         </span>
 
-        {/* Name */}
         <span className="truncate">{node.name}</span>
       </button>
 
-      {/* Children */}
       {isFolder && isExpanded && node.children && (
         <div className="overflow-hidden">
           {node.children.map((child) => (
@@ -115,7 +111,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   return (
     <>
-      {/* Mobile overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-30 lg:hidden backdrop-blur-sm"
@@ -123,7 +118,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         />
       )}
 
-      {/* Sidebar panel */}
       <aside
         id="sidebar"
         className={`
@@ -137,7 +131,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}
       >
-        {/* Sidebar header */}
         <div className="p-4 border-b border-white/5">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/25">
@@ -154,7 +147,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           </div>
         </div>
 
-        {/* Tree view */}
         <nav className="flex-1 overflow-y-auto p-2 scrollbar-thin" id="tree-view">
           <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider px-2 py-2">
             Explorer
@@ -162,7 +154,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           <TreeNode node={fileSystem} depth={0} />
         </nav>
 
-        {/* Sidebar footer */}
         <div className="p-3 border-t border-white/5">
           <p className="text-[10px] text-slate-600 text-center">
             © Webbly Media

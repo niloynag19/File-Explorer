@@ -22,7 +22,6 @@ export default function RenameModal({
   useEffect(() => {
     if (isOpen) {
       setName(currentName);
-      // Select text on open for easy replacement
       setTimeout(() => inputRef.current?.select(), 50);
     }
   }, [isOpen, currentName]);
@@ -39,18 +38,15 @@ export default function RenameModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* Modal */}
       <div
         id="rename-modal"
         className="relative w-full max-w-md bg-slate-800 border border-white/10 rounded-2xl shadow-2xl shadow-black/50 overflow-hidden animate-in"
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-white/5">
           <h2 className="text-lg font-semibold text-white">Rename</h2>
           <button
@@ -61,7 +57,6 @@ export default function RenameModal({
           </button>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="p-5 space-y-4">
           <div className="space-y-2">
             <label
